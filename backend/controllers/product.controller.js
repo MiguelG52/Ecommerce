@@ -3,9 +3,15 @@ import { uploadImg, deleteImage } from "../libs/cloudinary.js";
 import fs from 'fs-extra';
 
 //get all data, *****dont use*********
-export const getAllProducts = async(req, res) =>{
-    const products = await ProductModel.find();
-    return res.json(products);
+export const bestProducts = async(req, res) =>{
+    
+    try{
+        const productsList = await ProductModel.find({isBestProduct: true}).limit(5);
+        return res.json(productsList);
+
+    }catch(error){
+        return res.status(404).json(error);
+    }
 }
 
 //get a especific product by id
@@ -49,7 +55,7 @@ export const createProduct = async(req, res) =>{
         //overwrite img info to request body
         body.img = img;
 
-        //delete the img from the server
+        //delete the imagetemporary saved from the server
         await fs.remove(files.img.tempFilePath);
 
         
@@ -61,7 +67,7 @@ export const createProduct = async(req, res) =>{
             return res.status(500).json({msg: `Ups, an error has occurred: ${error}`});
         }
     }else{
-        return res.status(500).json({msg: `Ups: ${error}`});
+        return res.status(500).json({msg: `Ups: an error has occurred`});
     }
     
 }
