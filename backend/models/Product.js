@@ -35,6 +35,9 @@ const productSchema = mongoose.Schema(
         img:{
             url:String,
             public_id:String,
+        },
+        isBestProduct:{
+            type: Boolean
         }
     },
     {

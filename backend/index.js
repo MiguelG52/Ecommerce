@@ -2,6 +2,7 @@ import express from 'express';
 import { connectDB } from './utils/mongo.js';
 import productRoute from './routes/product.route.js';
 import fileUpload from 'express-fileupload';
+import cors from 'cors';
 
 const app = express();
 
@@ -14,6 +15,18 @@ app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: './upload'
 }))
+const whiteList = ['http://localhost:3000']
+const corsOptions ={
+    origin: function(origin, callback){
+        if(whiteList.includes(origin)){
+            callback(null, true);
+        }else{
+            callback(new Error("Error de cors"));
+        }
+    }
+}
+
+
 
 //Routes
 app.use('/api/products', productRoute);
