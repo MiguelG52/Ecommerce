@@ -2,6 +2,6 @@ import axios from "axios";
 
 export const loadBestProducts = async(limit) =>{
     //call external node API
-    let url = 'http://localhost:4000/api/products/best-products';
+    let url = process.env.EXTERNAL_API;
     return await axios.get(url)
 }
