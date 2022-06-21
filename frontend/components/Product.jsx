@@ -12,7 +12,7 @@ const Product = ({product}) => {
             </div>):
             null
           }
-          <img className='bg-neutral-300 hover:bg-neutral-400  rounded-xl transition-smooth '
+          <img className='product-card '
             width={250}
             height={250}
             src={product.img.url} alt={`${product.name}`}

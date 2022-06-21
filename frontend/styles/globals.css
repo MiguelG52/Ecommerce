@@ -6,7 +6,30 @@
   .align-v-center{
     @apply flex flex-col items-center justify-center;
   }
+  .align-h-center{
+    @apply flex items-center justify-center;
+  }
   .transition-smooth{
     @apply transition-all ease-in-out duration-300;
   }
+  .paymentIcon{
+    @apply w-6 flex items-center justify-center
+  }
+  .btn{
+    @apply h-10 border-2 border-solid  transition-smooth capitalize
+  }
+  .product-card{
+    @apply bg-neutral-300 hover:bg-neutral-400  rounded-xl transition-smooth capitalize
+  }
+  .toast{
+    @apply  p-1 fixed top-10 left-[16%] md:left-1/3 xl:left-[80%] z-20 transition-smooth bg-green-500 text-white font-semibold  capitalize shadow-xl  h-11 align-h-center gap-2 text-center rounded-md
+  }
+  .toast-hide{
+    @apply -top-12;
+  }
+}
+
+
+.hide-scroll-bar{
+  scroll-width: none;
 }

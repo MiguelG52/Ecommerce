@@ -6,18 +6,18 @@ import Footer from './Footer';
 
 const Layout = ({children}) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Next.js Ecommerce</title>
       </Head>
       <header>
         <Navbar/>
       </header>
-      <main className='max-w-[1900px]'>
+      <main className='max-w-[1900px] pt-14 overflow-hidden relative'>
         {children}
         <Footer/>
       </main>
-    </div>
+    </>
   ) 
   
 }

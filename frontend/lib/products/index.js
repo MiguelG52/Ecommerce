@@ -1,3 +1,4 @@
 import { loadBestProducts } from "./fetch-best-product";
+import { loadProducDetail } from "./fetch-product-detail";
 
-export {loadBestProducts};
+export {loadBestProducts, loadProducDetail};
